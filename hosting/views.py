@@ -23,10 +23,10 @@ def login_view(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
-        usernamee = authenticate(request, username=username, password=password)
-        if usernamee is not None:  # not none    means the user name is there in database                login(request, username)
+        username = authenticate(request, username=username, password=password)
+        if username is not None:  # not none    means the user name is there in database                login(request, username)
 
-            login(request, usernamee)
+            login(request, username)
             return redirect("products")
         else:
             messages.info(request, "Username OR Password is incorrect")  # you dont need to pass through context
