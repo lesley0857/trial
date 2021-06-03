@@ -19,11 +19,13 @@ from django.conf import settings
 from django.conf.urls.static import static
 from hosting.views import *
 from hosting.models import *
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html')),
     path('', product_view, name='products'),
-    path('login/', login_view, name='login'),
+    #path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('productdetail/<int:id>/', product_detail_view, name='productdetail'),
 ]

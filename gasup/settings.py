@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     #own
     'hosting',
 ]
@@ -133,6 +134,9 @@ MEDIA_URL = '/images/'
 
 
 
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
+
+LOGIN_REDIRECT_URL ='/'

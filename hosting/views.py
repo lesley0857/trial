@@ -19,7 +19,7 @@ def product_detail_view(request,id):
     context = {'product_detail':product_detail}
     return render(request,"product-detail.html",context)
 
-def login_view(request):
+'''def login_view(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -32,6 +32,7 @@ def login_view(request):
             messages.info(request, "Username OR Password is incorrect")  # you dont need to pass through context
     context = {}
     return render(request, 'login.html', context)
+'''
 
 @login_required(login_url='login')
 def logout_view(request):
