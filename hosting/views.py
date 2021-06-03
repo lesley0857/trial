@@ -35,4 +35,4 @@ def login_view(request):
 @login_required(login_url='Home:login')
 def logout_view(request):
     logout(request)
-    return redirect('Home:login')
+    return redirect('login')
