@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     #own
     'hosting',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
@@ -139,9 +140,4 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
 
-OAUTH2_PROVIDER_APPLICATION_MODEL = 'oauth2_provider.Application'
-MIGRATION_MODULES = {
-   # key: app name, value: a fully qualified package name, not the usual `app_label.something_else`
-  'oauth2_provider': 'gasup.migrations.oauth2_provider',
-}
 LOGIN_REDIRECT_URL ='/'

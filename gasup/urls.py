@@ -23,9 +23,17 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html')),
+    #path('accounts/login/', auth_views.LoginView.as_view(template_name='login.html')),
     path('', product_view, name='products'),
-    #path('login/', login_view, name='login'),
+    path('signup/', signup_view, name='signup'),
+    path('allorders/', all_orders, name='allorders'),
+    path('checkout/', Checkout, name='checkout'),
+    path('customer/<int:id>/', customer_view, name='customer'),
+    path('ordersummary/',order_summary, name='ordersummary'),
+    path('ordersummaryAnonymous/',order_summary_for_Anonymous, name='ordersummaryAnonymous'),
+    path('orderdetail/<int:id>/',  order_detail, name='orderdetail'),
+    path('addtocart/<int:id>/',add_to_cart, name='addtocart'),
+    path('login/', login_view, name='login'),
     path('logout/', logout_view, name='logout'),
     path('productdetail/<int:id>/', product_detail_view, name='productdetail'),
 ]

@@ -14,8 +14,12 @@
     <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" />
     <!-- Custom styles -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="{% static 'js/jquery.js' %}"></script>
 </head>
 <body>
+ {% block content %}
+
+ {% endblock %}
 <form method="GET" action="">
     <input type="text" name="q" value="{{request.GET.q}}" placeholder="search for products here"/>
     <input type="submit">
@@ -43,12 +47,29 @@
                   {{i.title}}
                   {{i.tag}}
 
-                  <img alt='pic' src="{{i.profile_pic.url}}" height="50">
+                  <img alt='pic' src="{{i.profile_pic.url}}" height="100">
                   <button type="button" class="btn btn-primary">DEtails</button>
               </a>
+                  {% block addcart %}
+                    <a href="">+</a>
+                   {% endblock %}
 
           </div>
          {% endfor %}
+          {% if messages %}
+                  {% for message in messages %}
+                         <div id="messages">{{ message }}</div>
+                     <script type="text/javascript">
+                        var ik = document.getElementById('messages');
+                                alert(ik.innerHTML)
+
+                    </script>
+
+                  {% endfor %}
+               {% endif %}
+            {% block ordersummary %}
+          <a href="{% url 'ordersummaryAnonymous' %}"> Order summary </a>
+            {% endblock %}
         </div>
 
         <!-- Post -->

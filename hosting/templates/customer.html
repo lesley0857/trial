@@ -1,0 +1,34 @@
+{% extends "product.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+   {% block content %}
+   <b>HELLO {{customer.name}}</b>
+
+       {% if messages %}
+                      {% for message in messages %}
+                             <div id="messages">{{ message }}</div>
+                         <script type="text/javascript">
+                            var ik = document.getElementById('messages');
+                                    alert(ik.innerHTML)
+
+                        </script>
+
+                      {% endfor %}
+        {% endif %}
+
+     {% endblock %}
+         {% block addcart %}
+          <a href="{{ i.add_to_cart_url }}">+</a>
+         {% endblock %}
+
+         {% block ordersummary %}
+          <a href="{% url 'ordersummary' %}"> Order summary </a>
+          {% endblock %}
+</body>
+</html>
